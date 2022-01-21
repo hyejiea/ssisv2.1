@@ -1,0 +1,66 @@
+body {
+    background: #f0d2f1;
+    color: #a6e9f1;
+    margin-top: 5rem;
+  }
+  
+h1, h2, h3, h4, h5, h6 {
+color: #000000;
+}
+
+.bg-steel {
+background-color: #91d5f0;
+}
+
+.site-header .navbar-nav .nav-link {
+color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+font-weight: 500;
+}
+
+.content-section {
+background: #ffffff;
+margin-right: auto;
+margin-left: auto;
+padding: 10px 20px;
+border: 1px solid #dddddd;
+border-radius: 3px;
+margin-bottom: 20px;
+
+}
+
+.article-title {
+color: #000000;
+}
+
+a.article-title:hover {
+color: #000000;
+text-decoration: none;
+}
+
+.article-content {
+white-space: pre-line;
+}
+
+.article-metadata {
+padding-bottom: 1px;
+margin-bottom: 4px;
+border-bottom: 1px solid #000000;
+}
+
+.article-metadata a:hover {
+color: rgb(0, 0, 0);
+text-decoration: none;
+}
+
+a {
+text-decoration: none;
+}
+
+

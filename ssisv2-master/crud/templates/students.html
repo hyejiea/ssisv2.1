@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="mb-3">
+  <form class="d-flex" method="POST" action="{{ url_for('search') }}">
+    {{ form.search_by(class="form-select form-select-md me-3") }} 
+    {{ form.this(class="form-control form-control-md me-3", placeholder="...") }}
+    <button class="btn btn-outline-info" type="submit">Search</button>
+  </form>
+</div>
+<div class="container">
+  <div class="float-left">
+  </div>
+  <table class="table table-stripped">
+      <tr>
+        <th scope="col">ID no.</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Course  </th>
+        <th scope="col">Year Level</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Image URL</th>
+        <th scope"col"><form class="d-flex" method="POST" action="{{ url_for('add_a_student') }}">
+          <button class="btn btn-outline-warning btn-block" type="submit">Add  Student</button>
+        </form></th>
+      </tr>
+      {% for student in students %}
+    <tr>
+      <td>{{ student.0 }}</td>
+      <td>{{ student.1 }}</td>
+      <td>{{ student.2 }} </td>
+      <td>{{ student.3 }}</td>
+      <td>{{ student.4 }}</td>
+      <td>{{ student.5 }}</td>
+      <td id="photo" class="custom-clickable-row">
+      <img src="{{student.6}}"
+      width="50" height="50" id='profile_pic'></td>
+      <td>
+      	<a href="/update/{{student.0}}" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#updateModal{{student.0}}">Update</a><!--trigger button for update modal-->
+        <a href="/delete/{{student.0}}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete?')">Delete </a>
+      </td>
+{% endfor %}
+{% endblock content %}
+

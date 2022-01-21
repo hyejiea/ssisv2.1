@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block content %}
+  <div class="mb-3">
+    <form class="d-flex" method="POST" action="{{ url_for('college_search') }}">
+      {{ form.search_by(class="form-select form-select-md me-3") }} 
+      {{ form.this(class="form-control form-control-md me-3", placeholder="...") }}
+      <button class="btn btn-outline-info" type="submit">Search</button>
+    </form>
+  </div>
+  <table class="table table-stripped">
+    <tr>
+      <th scope="col">College Code</th>
+      <th scope="col">College Name</th>
+      <th scope"col">        <form class="d-flex" method="POST" action="{{ url_for('add_a_college') }}">
+        <button class="btn btn-outline-warning btn-block" type="submit">Add a College</button>
+        </form></th>
+    </tr>
+    {% for college in colleges %}
+    <tr>
+      <td>{{ college.0 }}</td>
+      <td>{{ college.1 }}</td>
+      <td>
+        <a class="btn-secondary btn-sm" href="{{ url_for('update_a_college', college_code=college[0]) }}">Update</a>
+        <a class="btn-danger btn-sm" href="{{ url_for('delete_a_college', college_code=college[0]) }}">Delete</a>
+      </td>
+    </tr>
+
+{% endfor %}
+{% endblock content %}
